@@ -39,6 +39,7 @@ public class UnityMessageEvent : MonoBehaviour
         // 스크립트가 활성화될 때마다 호출
 
         // 역할 : 스크립트가 활성화 되었을 때 작업 진행
+        // Start보다 빠르게 호출됨
         Debug.Log("OnEnable");
     }
 
@@ -47,6 +48,7 @@ public class UnityMessageEvent : MonoBehaviour
         // 스크립트가 비활성화될 때마다 호출
 
         // 역할 : 스크립트가 비활성화 되었을 때 작업 진행
+        // ex) 게임 마무리작업 진행할때 사용할 수 있음
         Debug.Log("OnDisable");
     }
 
@@ -62,7 +64,7 @@ public class UnityMessageEvent : MonoBehaviour
     {
         // 씬의 모든 게임오브젝트의 Update가 진행된 후 호출
 
-        // 역할 : 게임프레임의 진행 결과가 필요한 동작이 있는 기능 구현
+        // 역할 : 게임프레임의 진행 결과가 필요한 동작이 있는 기능 구현, 판정이나 후처리가 필요한경우 사용
         // ex) 플레이어의 위치가 결정된 후에 카메라의 위치 설정
         Debug.Log("LateUpdate");
     }
@@ -72,6 +74,7 @@ public class UnityMessageEvent : MonoBehaviour
         // 유니티의 물리설정 단위시간마다 호출 (기본 1초에 50번)
         // Update와 다르게 프레임당 연산과 단위시간이 일정
         // 단, 게임로직 등, 연산이 많은 작업을 FixedUpdate에 구현하지 않아야 함
+        // (만약 로직이나 연산이 많은 작업이 들어와서 프레임 드랍이 일어나면 물리처리 자체가 지연되버리는 문제 발생할 수 있음)
 
         // 역할 : 성능과 프레임 드랍에 영향을 받지 않아야 하는 작업
         // ex) 물리적 처리
@@ -83,6 +86,7 @@ public class UnityMessageEvent : MonoBehaviour
         // 스크립트가 삭제되었을 경우 호출
 
         // 역할 : 스크립트의 마무리 진행
+        // 오브젝트가 게임상에서 사라질때 호출됨, 존재 자체가 사라질 때 호출된다는 점에서 OnDisable과는 다름
         Debug.Log("OnDestory");
     }
 }
