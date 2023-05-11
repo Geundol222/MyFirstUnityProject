@@ -8,6 +8,7 @@ public class ChangeName : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("탱크 이름은 Player");
         gameObject.name = "Player";     // 게임이 처음 초기화 될때 Player로 이름을 바꿔준다.
     }
 }

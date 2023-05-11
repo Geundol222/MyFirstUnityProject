@@ -11,11 +11,13 @@ public class StartJump : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("컴포넌트 초기화");
         rigidbody = GetComponent<Rigidbody>();          // rigidbody에 Rigidbody 컴포넌트를 저장하여 초기화한다.
     }
 
     private void Start()
     {
+        Debug.Log("탱크 점프!");
         rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);  // 게임이 시작되면 Rigidbody컴포넌트에 jumpForce 만큼의 힘을 위로 부여한다.
     }
 }
