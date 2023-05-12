@@ -25,7 +25,13 @@ public class TankController : MonoBehaviour
 
     private void Rotate()
     {
-        transform.Rotate(Vector3.up * moveDir.x * rotateSpeed * Time.deltaTime, Space.Self);
+        Quaternion rotation = Quaternion.Euler(0, moveDir.x * rotateSpeed * Time.deltaTime, 0);
+
+        Vector3 rot = rotation.ToEulerAngles();
+
+        transform.Rotate(rot, Space.Self);                              // ?? 돌아가긴 하는데 맞는진 모르겠습니다.
+
+        // transform.Rotate(Vector3.up * moveDir.x * rotateSpeed * Time.deltaTime, Space.Self);
     }
 
     private void OnMove(InputValue value)
