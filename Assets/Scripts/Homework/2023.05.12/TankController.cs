@@ -29,7 +29,7 @@ public class TankController : MonoBehaviour
         
         Vector3 rot = Quaternion.ToEulerAngles(rotation);
         
-        transform.Rotate(rot, Space.Self);                              // ?? 돌아가긴 하는데 맞는진 모르겠습니다.
+        transform.Rotate(rot, Space.Self);                              // ?? 돌아가긴 하는데 맞는진 모르겠습니다. rotateSpeed 값을 5000은 줘야 만족스럽게 돌아갑니다.
 
         // transform.Rotate(Vector3.up, moveDir.x * rotateSpeed * Time.deltaTime, Space.Self);
     }
