@@ -27,7 +27,7 @@ public class TankController : MonoBehaviour
     {
         Quaternion rotation = Quaternion.Euler(0, moveDir.x * rotateSpeed * Time.deltaTime, 0);
         
-        Vector3 rot = Quaternion.ToEulerAngles(rotation);
+        Vector3 rot = rotation.eulerAngles;
         
         transform.Rotate(rot, Space.Self);                              // ?? 돌아가긴 하는데 맞는진 모르겠습니다. rotateSpeed 값을 5000은 줘야 만족스럽게 돌아갑니다.
 
