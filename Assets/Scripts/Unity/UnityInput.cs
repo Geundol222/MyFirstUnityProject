@@ -21,6 +21,7 @@ public class UnityInput : MonoBehaviour
 	// <Device>
 	// 특정한 장치를 기준으로 입력 감지
 	// 특정한 장치의 입력을 감지하기 때문에 여러 플랫폼에 대응이 어려음
+    // 그래서 잘 안쓰임 그냥 안쓰는것이 좋음
 
     private void InputByDevice()
 	{

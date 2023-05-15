@@ -27,7 +27,7 @@ public class UnityBasic : MonoBehaviour
         // gameObject.layer;        // 게임오브젝트의 레이어 접근
 
         GameObject.Find("Player");                          // 이름으로 찾기, 느린방식, 오브젝트가 많아질경우 가장 처음 찾은 오브젝트를 참조
-        GameObject.FindGameObjectWithTag("Player");         // 태그로 찾기 이 방식을 권장
+        GameObject.FindGameObjectWithTag("Player");         // 태그로 찾기 이 방식을 권장 ****
         GameObject.FindGameObjectsWithTag("Player");        // 해당 태그를 가진 오브젝트 모두 찾기, 배열형태로 나옴
 
         // <게임오브젝트 생성>

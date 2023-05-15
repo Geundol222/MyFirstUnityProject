@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
     private Vector3 moveDir;
 
     [SerializeField]
@@ -14,12 +13,6 @@ public class PlayerController : MonoBehaviour
     private float rotateSpeed;
     [SerializeField]
     private float jumpPower;
-
-    private void Awake()
-    {
-       
-    }
-
     private void Update()
     {
         Move();
@@ -48,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = new Vector3(0, 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        Vector3 rotation = transform.rotation.ToEulerAngles();
+        Vector3 rotation = transform.rotation.eulerAngles;
     }
 
     private void Jump()

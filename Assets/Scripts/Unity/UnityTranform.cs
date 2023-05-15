@@ -39,6 +39,6 @@ public class UnityTranform : MonoBehaviour
 
         // Euler각도를 Quaternion으로 변환
         transform.rotation = Quaternion.Euler(0, 90, 0);
-        Vector3 rotation = transform.rotation.ToEulerAngles();
+        Vector3 rotation = transform.rotation.eulerAngles;
     }
 }

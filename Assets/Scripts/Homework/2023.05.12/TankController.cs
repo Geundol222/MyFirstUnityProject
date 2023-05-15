@@ -27,8 +27,9 @@ public class TankController : MonoBehaviour
     {
         Quaternion rotation = Quaternion.Euler(0, moveDir.x * rotateSpeed * Time.deltaTime, 0);
         
-        Vector3 rot = rotation.eulerAngles;
-        
+        Vector3 rot = rotation.eulerAngles;         // ToEulerAngles를 사용하면 라디안으로 들어가기 때문에 원래 사용하는 EulerAngle의 값과는 다른 rotateSpeed가 필요함
+                                                    // 이러한 이유로 ToEulerAngles는 유니티에서 더이상 권장되는 방식이 아니다.
+
         transform.Rotate(rot, Space.Self);          // 쿼터니언
         // transform.Rotate(Vector3.up, moveDir.x * rotateSpeed * Time.deltaTime, Space.Self);
     }
