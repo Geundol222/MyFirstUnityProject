@@ -44,7 +44,7 @@ public class UnityCoroutine : MonoBehaviour
 
     // <코루틴 시간 지연>
     // 코루틴은 시간 지연을 정의하여 반복가능한 작업의 진행 타이밍을 지정할 수 있음
-    IEnumerator CoRoutineWait()
+    IEnumerator CoroutineWait()
     {
         yield return new WaitForSeconds(1);     // n초간 시간지연
         yield return null;                      // 시간지연 없음

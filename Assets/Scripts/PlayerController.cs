@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [Header("Shooter")]
     [SerializeField] private Transform bulletPoint;
     [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private float repeatTime;
 
     private void Update()
     {
@@ -53,6 +54,29 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire(InputValue value)
     {
-        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);          // 프리팹 인스턴스화 반환형은 GameObject
+        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);  // 프리팹 인스턴스화 반환형은 GameObject         
+    }
+
+    private Coroutine bulletRoutine;
+
+    IEnumerator BulletMakeRoutine()
+    {
+        while (true)
+        {
+            Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+            yield return new WaitForSeconds(repeatTime);
+        }
+    }
+
+    private void OnRepeatFire(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            bulletRoutine = StartCoroutine(BulletMakeRoutine());
+        }
+        else
+        {
+            StopCoroutine(bulletRoutine);
+        }
     }
 }
