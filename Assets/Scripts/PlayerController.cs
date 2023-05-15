@@ -11,8 +11,7 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
     [SerializeField] 
     private float rotateSpeed;
-    [SerializeField]
-    private float jumpPower;
+
     private void Update()
     {
         Move();
