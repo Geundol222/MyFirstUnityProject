@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     private Vector3 moveDir;
 
-    [SerializeField]
-    private float moveSpeed;
-    [SerializeField] 
-    private float rotateSpeed;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotateSpeed;
+
+    [Header("Shooter")]
+    [SerializeField] private Transform bulletPoint;
+    [SerializeField] private Bullet bulletPrefab;
 
     private void Update()
     {
@@ -43,19 +45,14 @@ public class PlayerController : MonoBehaviour
         Vector3 rotation = transform.rotation.eulerAngles;
     }
 
-    private void Jump()
-    {
-        
-    }
-
     private void OnMove(InputValue value)
     {
         moveDir.x = value.Get<Vector2>().x;
         moveDir.z = value.Get<Vector2>().y;
     }
 
-    private void OnJump(InputValue value)
+    private void OnFire(InputValue value)
     {
-        Jump();
+        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);          // 프리팹 인스턴스화 반환형은 GameObject
     }
 }
