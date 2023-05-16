@@ -13,4 +13,18 @@ public class UnityCollision : MonoBehaviour
 	 ************************************************************************/
 
     // <유니티 충돌 메시지>
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("OnCollisionEnter");
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        Debug.Log("OnCollisionStay");
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("OnCollisionExit");
+    }
 }
