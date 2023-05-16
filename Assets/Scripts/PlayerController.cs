@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
         // LookAt();
     }
 
+    // <MVC 패턴>
+    // OnMove();        // 입력 input
+    // Move();          // 처리 Controller
+    // OnMoved();       // 데이터 Model + 이벤트
+
+
     public void Move()
     {
         // transform.position += moveSpeed * moveDir * Time.deltaTime;     // deltaTime : 한 프레임당 걸리는 시간

@@ -11,6 +11,7 @@ public class UnityCoroutine : MonoBehaviour
 	 * Update가 돌아가는동안 코루틴은 따로 돌아가고 있다.
 	 * 반복가능한 작업을 분산하여 진행하며, 실행을 일시정지하고 중단한 부분부터 다시시작할 수 있음
 	 * 단, 코루틴은 스레드가 아니며 코루틴의 작업은 여전히 메인 스레드에서 실행
+	 * 위의 말처럼 정말로 따로 스레드를 주어 돌아가는 것이 아니라 분할작업을 메인스레드에서 조금씩 해나가는 과정이다.
 	 ************************************************************************/
 
     // <코루틴 진행>
@@ -47,6 +48,6 @@ public class UnityCoroutine : MonoBehaviour
     IEnumerator CoroutineWait()
     {
         yield return new WaitForSeconds(1);     // n초간 시간지연
-        yield return null;                      // 시간지연 없음
+        yield return null;                      // 1프레임 지연 (사실상 시간지연 없음)
     }
 }
