@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,6 +9,11 @@ public class Controller0516 : MonoBehaviour
 {
     Vector3 moveDir;
 
+    [Header("CM Camera")]
+    [SerializeField] private CinemachineVirtualCamera main;
+    [SerializeField] private CinemachineVirtualCamera turret;
+
+    [Header("Move")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateAngle;
 
@@ -23,12 +29,12 @@ public class Controller0516 : MonoBehaviour
 
     private void Awake()
     {
-        EngineSound.clip = Idle;
+        EngineSound.loop = true;
     }
 
     private void Start()
     {
-        EngineSound.loop = true;
+        EngineSound.Play();
     }
 
     private void Update()
@@ -37,21 +43,32 @@ public class Controller0516 : MonoBehaviour
         Rotate();
     }
 
-    private void Move()
-    {
-        transform.Translate(Vector3.forward * moveDir.z * moveSpeed * Time.deltaTime, Space.Self);
-    }
-
     private void OnMove(InputValue value)
     {
         moveDir.x = value.Get<Vector2>().x;
         moveDir.z = value.Get<Vector2>().y;
 
-
         EngineSound.clip = Driving;
-        EngineSound.pitch += Time.deltaTime;
-        if (EngineSound.pitch > 3)
-            EngineSound.pitch = 3;
+        EngineSound.Play();
+    }
+
+    private void Move()
+    {
+        if (moveDir.x != 0 || moveDir.z != 0)
+        {
+            transform.Translate(Vector3.forward * moveDir.z * moveSpeed * Time.deltaTime, Space.Self);
+
+            EngineSound.pitch += Time.deltaTime / 2;
+            if (EngineSound.pitch > 2)
+                EngineSound.pitch = 2;
+        }
+        else if (moveDir.x == 0 && moveDir.z == 0)
+        {
+            EngineSound.pitch -= Time.deltaTime;
+            if (EngineSound.pitch < 1)
+                EngineSound.pitch = 1;
+        }
+               
     }
 
     private void Rotate()
@@ -66,6 +83,22 @@ public class Controller0516 : MonoBehaviour
     private void OnFire()
     {
         ShootSound.Play();
-        Instantiate(bullet, muzzlePoint.position, muzzlePoint.rotation);  
+        Instantiate(bullet, muzzlePoint.position, muzzlePoint.rotation);
+    }
+
+    private void OnCameraTransition(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            main.Priority = 0;
+            turret.Priority = 100;
+            EngineSound.volume = 0.3f;
+        }
+        else
+        {
+            turret.Priority = 0;
+            main.Priority = 100;
+            EngineSound.volume = 1f;
+        }
     }
 }

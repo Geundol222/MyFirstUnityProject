@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -7,6 +8,8 @@ using UnityEngine;
 public class Bullet0516 : MonoBehaviour
 {
     Rigidbody rb;
+    MeshCollider mc;
+    MeshRenderer mr;
 
     [SerializeField] private float bulletSpeed;
     [SerializeField] private GameObject ImpactEffect;
@@ -16,6 +19,8 @@ public class Bullet0516 : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        mr = GetComponent<MeshRenderer>();
+        mc = GetComponent<MeshCollider>();
     }
 
     private void Start()
@@ -27,7 +32,9 @@ public class Bullet0516 : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Instantiate(ImpactEffect, transform.position, transform.rotation);
+        mr.enabled = false;
+        mc.enabled = false;
         explosionSound.Play();
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 }
