@@ -65,11 +65,16 @@ public class PlayerController : MonoBehaviour
         moveDir.z = value.Get<Vector2>().y;
     }
 
-    private void OnFire(InputValue value)
+    public void Fire()
     {
         Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);  // 프리팹 인스턴스화 반환형은 GameObject
 
         animator.SetTrigger("Fire");
+    }
+
+    private void OnFire(InputValue value)
+    {
+        Fire();
     }
 
     private Coroutine bulletRoutine;

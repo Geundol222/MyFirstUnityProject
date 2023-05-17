@@ -208,6 +208,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4bd08ed8-e897-43ba-be4e-1940159b7077",
+                    "path": "<AndroidJoystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ba4b57e7-9500-4dbe-ab6b-958d60bf7cb4",
                     "path": "<Keyboard>/space",
                     "interactions": "",
