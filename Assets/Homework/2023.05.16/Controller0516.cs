@@ -29,6 +29,7 @@ public class Controller0516 : MonoBehaviour
 
     private void Awake()
     {
+        EngineSound.clip = Idle;
         EngineSound.loop = true;
     }
 
