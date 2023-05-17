@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1977926001715652562
+--- !u!1 &1284366368
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1977926001715652561}
+  - component: {fileID: 1284366369}
   m_Layer: 6
   m_Name: MuzzlePoint
   m_TagString: Untagged
@@ -16,21 +16,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1977926001715652561
+--- !u!4 &1284366369
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977926001715652562}
-  m_LocalRotation: {x: -0.1564345, y: 0, z: 0, w: 0.98768836}
+  m_GameObject: {fileID: 1284366368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1977926002494453781}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -18, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1977926002494875121
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1977926002494453785}
-  - {fileID: 1977926001715652561}
+  - {fileID: 1284366369}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -280,11 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15937aa57b7aff044bfed194e54ed48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main: {fileID: 5024093902967001327, guid: 41a8df6132604954ebbfa1497dc3a38c, type: 3}
-  turret: {fileID: 2483610730180896654, guid: 3390f9babae494f44825b1c6483020f4, type: 3}
+  main: {fileID: 0}
+  turret: {fileID: 0}
   moveSpeed: 3
   rotateAngle: 90
-  muzzlePoint: {fileID: 1977926001715652561}
+  muzzlePoint: {fileID: 1284366369}
   bullet: {fileID: -3614011844431936371, guid: 3e273d8892922df48aeca5a5e468ae6a, type: 3}
   EngineSound: {fileID: 3519447960028737972}
   ShootSound: {fileID: 6513085887376307181}
