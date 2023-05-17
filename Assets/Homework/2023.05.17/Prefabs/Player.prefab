@@ -209,11 +209,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1977926002494453781}
   - component: {fileID: 1977926002494875122}
-  - component: {fileID: 5891430990218266329}
   - component: {fileID: 3519447960028737972}
   - component: {fileID: 6513085887376307181}
   - component: {fileID: -5605170758726633493}
   - component: {fileID: 5932905766316849234}
+  - component: {fileID: 5899031556288868367}
+  - component: {fileID: -8328467132464336818}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -268,28 +269,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5891430990218266329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977926002494875125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15937aa57b7aff044bfed194e54ed48a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  main: {fileID: 0}
-  turret: {fileID: 0}
-  moveSpeed: 3
-  rotateAngle: 90
-  muzzlePoint: {fileID: 1284366369}
-  bullet: {fileID: -3614011844431936371, guid: 3e273d8892922df48aeca5a5e468ae6a, type: 3}
-  EngineSound: {fileID: 3519447960028737972}
-  ShootSound: {fileID: 6513085887376307181}
-  Idle: {fileID: 8300000, guid: 4932ab25b84dd7649b80af68a9660ddc, type: 3}
-  Driving: {fileID: 8300000, guid: d7ca9fb5aa30155449192b23d7fb3336, type: 3}
 --- !u!82 &3519447960028737972
 AudioSource:
   m_ObjectHideFlags: 0
@@ -401,7 +380,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -589,6 +568,49 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.86823344
   m_Center: {x: 0, y: 1.1, z: 0}
+--- !u!114 &5899031556288868367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977926002494875125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e5619b8c78ea543896c8ee52da6a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  main: {fileID: 0}
+  turret: {fileID: 0}
+  moveSpeed: 3
+  rotateAngle: 90
+  muzzlePoint: {fileID: 5093446670408672350, guid: eb0196f12fbd22b41a2688c1e2fa2819, type: 3}
+  bullet: {fileID: -7151698019602059291, guid: eb0196f12fbd22b41a2688c1e2fa2819, type: 3}
+  EngineSound: {fileID: 3519447960028737972}
+  ShootSound: {fileID: 6513085887376307181}
+  Idle: {fileID: 8300000, guid: 4932ab25b84dd7649b80af68a9660ddc, type: 3}
+  Driving: {fileID: 8300000, guid: d7ca9fb5aa30155449192b23d7fb3336, type: 3}
+--- !u!95 &-8328467132464336818
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977926002494875125}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24f6a826ff95bc94299b1a6925d2e0dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1977926002494875127
 GameObject:
   m_ObjectHideFlags: 0

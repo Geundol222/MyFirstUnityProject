@@ -5,9 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Controller0516 : MonoBehaviour
+public class Controller0517 : MonoBehaviour
 {
-    Vector3 moveDir;
+    private Vector3 moveDir;
+    private Animator animator;
 
     [Header("CM Camera")]
     [SerializeField] private CinemachineVirtualCamera main;
@@ -19,7 +20,7 @@ public class Controller0516 : MonoBehaviour
 
     [Header("Shooter")]
     [SerializeField] private Transform muzzlePoint;
-    [SerializeField] private Bullet0516 bullet;
+    [SerializeField] private Bullet0517 bullet;
 
     [Header("Sound")]
     [SerializeField] private AudioSource EngineSound;
@@ -29,6 +30,7 @@ public class Controller0516 : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         EngineSound.clip = Idle;
         EngineSound.loop = true;
     }
@@ -81,10 +83,15 @@ public class Controller0516 : MonoBehaviour
         transform.Rotate(eulerRotation, Space.Self);
     }
 
-    private void OnFire()
+    public void Fire()
     {
         ShootSound.Play();
         Instantiate(bullet, muzzlePoint.position, muzzlePoint.rotation);
+        animator.SetTrigger("Fire");
+    }
+    private void OnFire()
+    {
+        Fire();
     }
 
     private void OnCameraTransition(InputValue value)

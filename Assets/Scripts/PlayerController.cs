@@ -15,6 +15,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Bullet bulletPrefab;
     [SerializeField] private float repeatTime;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         Move();
@@ -58,9 +65,16 @@ public class PlayerController : MonoBehaviour
         moveDir.z = value.Get<Vector2>().y;
     }
 
+    public void Fire()
+    {
+        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);  // 프리팹 인스턴스화 반환형은 GameObject
+
+        animator.SetTrigger("Fire");
+    }
+
     private void OnFire(InputValue value)
     {
-        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);  // 프리팹 인스턴스화 반환형은 GameObject         
+        Fire();
     }
 
     private Coroutine bulletRoutine;
