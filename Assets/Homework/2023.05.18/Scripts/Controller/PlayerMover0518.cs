@@ -8,8 +8,6 @@ public class PlayerMover0518 : MonoBehaviour
 {
     private Vector3 moveDir;
 
-    private Vector3 turretDir;
-
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateAngle;
 
@@ -38,18 +36,31 @@ public class PlayerMover0518 : MonoBehaviour
     {
         moveDir.x = value.Get<Vector2>().x;
         moveDir.z = value.Get<Vector2>().y;
-    }
 
-    private void Move()
-    {
         if (moveDir.x != 0 || moveDir.z != 0)
         {
-            transform.Translate(Vector3.forward * moveDir.z * moveSpeed * Time.deltaTime, Space.Self);
             OnMoved?.Invoke();
         }
         else if (moveDir.x == 0 && moveDir.z == 0)
         {
             OnStoped?.Invoke();
+        }
+    }
+
+    private void Move()
+    {
+        transform.Translate(Vector3.forward * moveDir.z * moveSpeed * Time.deltaTime, Space.Self);
+        if (moveDir.x != 0 || moveDir.z != 0)
+        {
+            EngineSound.pitch += Time.deltaTime / 2;
+            if (EngineSound.pitch > 2)
+                EngineSound.pitch = 2;
+        }
+        else if (moveDir.x == 0 && moveDir.z == 0)
+        {
+            EngineSound.pitch -= Time.deltaTime;
+            if (EngineSound.pitch < 1)
+                EngineSound.pitch = 1;
         }
     }
 
@@ -60,24 +71,5 @@ public class PlayerMover0518 : MonoBehaviour
         Vector3 eulerRotation = rotation.eulerAngles;
 
         transform.Rotate(eulerRotation, Space.Self);
-    }
-
-    private void OnTurretRotate()
-    {
-
-    }
-
-    public void MovePitch()
-    {
-        EngineSound.pitch += Time.deltaTime / 2;
-        if (EngineSound.pitch > 2)
-            EngineSound.pitch = 2;
-    }
-
-    public void StopPitch()
-    {
-        EngineSound.pitch -= Time.deltaTime;
-        if (EngineSound.pitch < 1)
-            EngineSound.pitch = 1;
     }
 }
