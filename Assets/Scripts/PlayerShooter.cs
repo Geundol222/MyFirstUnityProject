@@ -48,9 +48,4 @@ public class PlayerShooter : MonoBehaviour
             StopCoroutine(bulletRoutine);
         }
     }
-
-    public void Test(int count)
-    {
-        Debug.Log($"데이터의 슛 카운트가 {count}만큼 변했습니다.");
-    }
 }
