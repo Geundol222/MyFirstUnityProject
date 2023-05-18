@@ -29,15 +29,15 @@ public class UnityScene : MonoBehaviour
 	}
 
     // <¾À Ãß°¡>
-    public void AddSceneByName(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-    }
-
-    public void AddSceneByIndex(int sceneIndex)
-    {
-        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Additive);
-    }
+    // public void AddSceneByName(string sceneName)
+    // {
+    //     SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    // }
+    // 
+    // public void AddSceneByIndex(int sceneIndex)
+    // {
+    //     SceneManager.LoadScene(sceneIndex, LoadSceneMode.Additive);
+    // }
 
     // <ºñµ¿±â ¾À ·Îµå>
     public void ChangeSceneASync(string sceneName)

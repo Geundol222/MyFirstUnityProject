@@ -70,6 +70,8 @@ public class PlayerController : MonoBehaviour
         Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);  // 프리팹 인스턴스화 반환형은 GameObject
 
         animator.SetTrigger("Fire");
+
+        GameManager.Data.AddShootCount(1);
     }
 
     private void OnFire(InputValue value)
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour
         while (true)
         {
             Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
+            animator.SetTrigger("Fire");
             yield return new WaitForSeconds(repeatTime);
         }
     }

@@ -230,6 +230,17 @@
                 },
                 {
                     "name": "",
+                    "id": "049dea93-3903-4d11-b226-a59b5bebb25f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "144e1ede-e2d9-4450-b0c7-e2942f5a3abb",
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
