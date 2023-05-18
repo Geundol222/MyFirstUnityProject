@@ -2,27 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerShooter : MonoBehaviour
 {
-    private Animator animator;
-
     [SerializeField] private Transform bulletPoint;
     [SerializeField] private Bullet bulletPrefab;
     [SerializeField] private float repeatTime;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
+    public UnityEvent OnFired;
 
     public void Fire()
     {
         Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);  // 프리팹 인스턴스화 반환형은 GameObject
 
-        animator.SetTrigger("Fire");
-
         GameManager.Data.AddShootCount(1);
+        OnFired?.Invoke();
     }
 
     private void OnFire(InputValue value)
@@ -37,7 +32,7 @@ public class PlayerShooter : MonoBehaviour
         while (true)
         {
             Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
-            animator.SetTrigger("Fire");
+            OnFired?.Invoke();
             yield return new WaitForSeconds(repeatTime);
         }
     }
@@ -52,5 +47,10 @@ public class PlayerShooter : MonoBehaviour
         {
             StopCoroutine(bulletRoutine);
         }
+    }
+
+    public void Test(int count)
+    {
+        Debug.Log($"데이터의 슛 카운트가 {count}만큼 변했습니다.");
     }
 }
