@@ -11,15 +11,17 @@ using UnityEngine.Events;
 	사용자 인터페이스, 데이터, 논리로직을 분리하여 프로그램을 관리하는 패턴
 
 	구현 :
-	Model
+	Model (데이터)                                          => ex) DataManager
 		프로그램의 데이터
 		Controller에 의해 갱신
 		데이터의 변경을 View에게 알림
-	View
+
+	View (입출력)                                           => ex) ShootCountView
 		사용자 인터페이스
 		Model의 데이터를 기반으로 사용자에게 내용 표현
 		사용자에게 입력을 받아 Controller에게 알림
-	Controller
+
+	Controller (로직 & 갱신)                                => ex) PlayerShooter
 		논리로직
 		View의 입력을 받아 논리로직을 처리
 		논리로직의 결과를 Model에 갱신
